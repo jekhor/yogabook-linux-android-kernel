@@ -1,0 +1,128 @@
+/*
+ * Copyright (C) 2014, Intel Corporation.
+ *
+ * This software is licensed under the terms of the GNU General Public
+ * License version 2, as published by the Free Software Foundation, and
+ * may be copied, distributed, and modified under those terms.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ */
+
+#ifndef _CHV_DC_REG_H
+#define _CHV_DC_REG_H
+
+#define CHV_DISPLAY_BASE 0x180000
+#define CHV_PORTB_CTRL	(CHV_DISPLAY_BASE + 0x61140)
+#define CHV_PORTC_CTRL	(CHV_DISPLAY_BASE + 0x61160)
+#define CHV_PORTD_CTRL	(CHV_DISPLAY_BASE + 0x6116C)
+
+#define CHV_HPD_CTRL	(CHV_DISPLAY_BASE + 0x61164)
+#define CHV_HPD_STAT	(CHV_DISPLAY_BASE + 0x61114)
+#define CHV_HPD_LIVE_STATUS_MASK	(0x7 << 27)
+#define CHV_HPD_LIVE_STATUS_B	(0x1 << 29)
+#define CHV_HPD_LIVE_STATUS_C	(0x1 << 28)
+#define CHV_HPD_LIVE_STATUS_D	(0x1 << 27)
+#define CHV_HPD_LIVE_STATUS(port) (CHV_HPD_LIVE_STATUS_B \
+				>> (port - PORT_B))
+
+/* CHV SDVO/HDMI bits: */
+#define   SDVO_PIPE_SEL_CHV(pipe)		((pipe) << 24)
+#define   SDVO_PIPE_SEL_MASK_CHV		(3 << 24)
+
+#define   GMBUS_PORT_DPD_CHV			3
+
+/* CGM Registers */
+
+#define CGM_OFFSET 0x2000
+
+#define PIPEA_CGM_CONTROL (CHV_DISPLAY_BASE + 0x67A00)
+#define PIPEB_CGM_CONTROL (CHV_DISPLAY_BASE + 0x69A00)
+#define PIPEC_CGM_CONTROL (CHV_DISPLAY_BASE + 0x6BA00)
+
+#define _PIPE_CGM_CONTROL(pipe) \
+	(PIPEA_CGM_CONTROL + (pipe * CGM_OFFSET))
+
+#define PIPEA_CGM_DEGAMMA_MIN (CHV_DISPLAY_BASE + 0x66000)
+#define PIPEA_CGM_DEGAMMA_MAX (CHV_DISPLAY_BASE + 0x66208)
+
+#define PIPEB_CGM_DEGAMMA_MIN (CHV_DISPLAY_BASE + 0x68000)
+#define PIPEB_CGM_DEGAMMA_MAX (CHV_DISPLAY_BASE + 0x68208)
+
+#define PIPEC_CGM_DEGAMMA_MIN (CHV_DISPLAY_BASE + 0x6A000)
+#define PIPEC_CGM_DEGAMMA_MAX (CHV_DISPLAY_BASE + 0x6A208)
+
+#define DEGAMMA_OFFSET 0x2000
+
+#define _PIPE_DEGAMMA_BASE(pipe) \
+	(PIPEA_CGM_DEGAMMA_MIN + (pipe * DEGAMMA_OFFSET))
+
+#define PIPEA_CGM_GAMMA_MIN (CHV_DISPLAY_BASE + 0x67000)
+#define PIPEA_CGM_GAMMA_MAX (CHV_DISPLAY_BASE + 0x67808)
+
+#define PIPEB_CGM_GAMMA_MIN (CHV_DISPLAY_BASE + 0x69000)
+#define PIPEB_CGM_GAMMA_MAX (CHV_DISPLAY_BASE + 0x69808)
+
+#define PIPEC_CGM_GAMMA_MIN (CHV_DISPLAY_BASE + 0x6B000)
+#define PIPEC_CGM_GAMMA_MAX (CHV_DISPLAY_BASE + 0x6B808)
+
+#define GAMMA_OFFSET 0x2000
+
+#define _PIPE_GAMMA_BASE(pipe) \
+	(PIPEA_CGM_GAMMA_MIN + (pipe * GAMMA_OFFSET))
+
+#define PIPEA_CGM_CSC_COEF01 (CHV_DISPLAY_BASE + 0x67900)
+#define PIPEB_CGM_CSC_COEF01 (CHV_DISPLAY_BASE + 0x69900)
+#define PIPEC_CGM_CSC_COEF01 (CHV_DISPLAY_BASE + 0x6B900)
+
+#define PIPEA_CGM_CSC_COEF23 (CHV_DISPLAY_BASE + 0x67904)
+#define PIPEB_CGM_CSC_COEF23 (CHV_DISPLAY_BASE + 0x69904)
+#define PIPEC_CGM_CSC_COEF23 (CHV_DISPLAY_BASE + 0x6B904)
+
+#define PIPEA_CGM_CSC_COEF45 (CHV_DISPLAY_BASE + 0x67908)
+#define PIPEB_CGM_CSC_COEF45 (CHV_DISPLAY_BASE + 0x69908)
+#define PIPEC_CGM_CSC_COEF45 (CHV_DISPLAY_BASE + 0x6B908)
+
+#define PIPEA_CGM_CSC_COEF67 (CHV_DISPLAY_BASE + 0x6790C)
+#define PIPEB_CGM_CSC_COEF67 (CHV_DISPLAY_BASE + 0x6990C)
+#define PIPEC_CGM_CSC_COEF67 (CHV_DISPLAY_BASE + 0x6B90C)
+
+#define PIPEA_CGM_CSC_COEF8 (CHV_DISPLAY_BASE + 0x67910)
+#define PIPEB_CGM_CSC_COEF8 (CHV_DISPLAY_BASE + 0x69910)
+#define PIPEC_CGM_CSC_COEF8 (CHV_DISPLAY_BASE + 0x6B910)
+
+#define CSC_REG_OFFSET 0x2000
+
+#define _PIPE_CSC_BASE(pipe) \
+	(PIPEA_CGM_CSC_COEF01 + (pipe * CSC_REG_OFFSET))
+
+/* Sprite control */
+#define CHV_SPR_CTRL_BASE               (CHV_DISPLAY_BASE + 0x72180)
+
+/* Contrast and brightness */
+#define CHV_SPR_CB_BASE                 (CHV_DISPLAY_BASE + 0x721d0)
+
+/* Hue and Saturation */
+#define CHV_SPR_HS_BASE                 (CHV_DISPLAY_BASE + 0x721d4)
+
+#define   SP_ENABLE                     (1<<31)
+
+/* Added for HDMI LPE Audio */
+#define ADF_LPE_AUDIO_HDMI_STATUS_A \
+	(CHV_DISPLAY_BASE + 0x65064)
+#define ADF_LPE_AUDIO_HDMI_STATUS_B \
+	(CHV_DISPLAY_BASE + 0x65864)
+#define ADF_LPE_AUDIO_HDMI_STATUS_C \
+	(CHV_DISPLAY_BASE + 0x65964)
+#define ADF_LPE_PIPE_B_INTERRUPT	(1<<20)
+#define ADF_LPE_PIPE_A_INTERRUPT	(1<<21)
+#define ADF_LPE_PIPE_C_INTERRUPT	(1<<12)
+#define ADF_HDMI_AUDIO_UNDERRUN		(1UL<<31)
+#define ADF_HDMI_AUDIO_BUFFER_DONE	(1UL<<29)
+#define ADF_HDMI_AUDIO_UNDERRUN_ENABLE	(1UL<<15)
+#define ADF_HDMI_AUDIO_LPE_C_CONFIG	0x65900
+#define ADF_HDMI_AUDIO_LPE_B_CONFIG	0x65800
+#endif

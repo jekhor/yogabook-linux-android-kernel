@@ -1,0 +1,12 @@
+#
+# Goodix touchscreen driver configuration
+#
+config TOUCHSCREEN_GT9XX
+	tristate "Goodix touchscreen GT9XX"
+	default n
+	help
+	  Say Y here if you have a Goodix touchscreen connected
+	  to your system.
+
+	  If unsure, say N.
+

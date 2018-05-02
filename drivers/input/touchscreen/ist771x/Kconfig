@@ -1,0 +1,12 @@
+#
+# Hideep touchscreen driver configuration
+#
+menuconfig TOUCHSCREEN_HIDEEP_IST771X
+	bool "Hideep touchscreen IST771x"
+	default n
+	help
+	  Say Y here if you have a Hideep touchscreen connected
+	  to your system.
+
+	  If unsure, say N.
+

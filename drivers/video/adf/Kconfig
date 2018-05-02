@@ -1,0 +1,55 @@
+menuconfig ADF
+	depends on SYNC
+	depends on DMA_SHARED_BUFFER
+	tristate "Atomic Display Framework (ADF)"
+	help
+	  Enable support for Atomic display framework.
+
+config ADF_FBDEV
+	depends on ADF
+	depends on FB
+	tristate "ADF fbdev helper"
+	help
+	  Enable ADF framebuffer driver helpere.
+
+config ADF_MEMBLOCK
+	depends on ADF
+	depends on HAVE_MEMBLOCK
+	tristate "ADF memblock helpers"
+	help
+	  Enable ADF memory block helpers
+
+config ADF_INTEL
+	depends on ADF
+	tristate "Intel Display Driver"
+	help
+	  Enable ADF compatible Intel display driver.
+
+config ADF_INTEL_VLV
+	bool "Valleyview/Cherryview"
+	depends on ADF_INTEL
+	default y
+	help
+	  Choose this option for common code on VLV/CHT platforms.
+
+	  Google has come up with a new display framework called ADF. Intel
+	  linux display team has come up with a new driver based on the ADF
+	  framework. This options is for commond code for VLV/CHT in the ADF
+	  compliant driver.
+
+config ADF_INTEL_CHV
+	bool "Only Cherryview specific"
+	depends on ADF_INTEL_VLV
+	help
+	  Choose this option for specific code required for CHT platform.
+
+	  Google has come up with a new display framework called ADF. Intel
+	  linux display team has come up with a new driver based on the ADF
+	  framework. This options is for specific code for CHT in the ADF
+	  compliant driver.
+
+config ADF_INTEL_FBDEV
+	depends on ADF_INTEL && ADF_FBDEV
+	tristate "Intel FBDEV Driver "
+	help
+	  Enable ADF based framebuffer driver for Intel displays.

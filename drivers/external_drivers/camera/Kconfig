@@ -1,0 +1,4 @@
+if EXTERNAL_CAMERA
+source drivers/external_drivers/camera/drivers/Kconfig
+endif
+

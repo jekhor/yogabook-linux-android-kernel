@@ -1,0 +1,12 @@
+#
+# Hideep touchscreen driver configuration
+#
+menuconfig TOUCHSCREEN_HIDEEP
+	bool "Hideep touchscreen"
+	default y
+	help
+	  Say Y here if you have a Hideep touchscreen connected
+	  to your system.
+
+	  If unsure, say N.
+

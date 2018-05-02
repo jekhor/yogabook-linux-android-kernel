@@ -1,0 +1,31 @@
+config USB_TYPEC_CORE
+	bool "Support for Type-C phy and detect"
+	depends on USB_TYPEC
+	help
+	  Say Y here if your system has a Type-C connector support
+	  for USB controller based on the USB phy IP Core and detection
+	  available based on cc pull-up, pull-down or floating.
+
+config USB_TYPEC_PHY_FUSB300
+	depends on USB_TYPEC_CORE
+	tristate "Support FUSB300 Type-C Phy"
+	help
+	  Say Y or M here if your system has a Dual Role SuperSpeed
+	  USB controller based on the DesignWare FUSB300/FUSB302 IP Core.
+
+	  If you choose to build this driver is a dynamically linked
+	  module, the module will be called  phy-fusb300.ko.
+
+config USBC_PD
+	depends on USB_TYPEC
+	tristate "Support for USB Power Delivery"
+	---help---
+	  The TYPE-C Power Deliver is the high power delivery support with
+	  the special protocol. This will includes Power Delivery with the
+	  pd policy and system policy.
+
+if USBC_PD
+
+source "drivers/usb/typec/pd/Kconfig"
+
+endif

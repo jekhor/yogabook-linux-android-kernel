@@ -1,0 +1,12 @@
+#
+# Hideep touchscreen driver configuration
+#
+menuconfig TOUCHSCREEN_HIDEEP_IST940E
+	bool "Hideep touchscreen IST940E"
+	default y
+	help
+	  Say Y here if you have a Hideep touchscreen connected
+	  to your system.
+
+	  If unsure, say N.
+

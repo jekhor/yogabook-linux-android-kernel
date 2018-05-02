@@ -1,0 +1,11 @@
+#
+# lenovo virtual smart pad driver configuration
+#
+menuconfig LENOVO_SMART_PAD_SUPPORT
+	bool "lenovo smart pad support"
+	default y
+	help
+	  Say Y here if smart pad is supported
+
+	  If unsure, say N.
+

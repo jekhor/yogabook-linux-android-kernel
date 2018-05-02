@@ -1,0 +1,83 @@
+config SND_SOC_INTEL_MRD7
+	tristate "SOC Machine Audio driver for Intel(R) MRD7 device"
+	depends on X86
+	select SND_SOC_RT5640
+	select SND_SST_PLATFORM
+	select SND_SST_MACHINE
+	select SND_INTEL_SST
+	select SND_HWDEP
+	default n
+
+	help
+	  This adds support for ASoC machine driver for Intel(R) MRD7 device
+          based on the BYT-CR platform and RT5640 codec.
+          Say Y if you have such a device
+          If unsure select "N".
+
+config SND_SOC_INTEL_ANCHOR8
+	tristate "SOC Machine Audio driver for Intel(R) Anchor8 device"
+	depends on X86
+	select SND_SOC_RT5651
+	select SND_SST_PLATFORM
+	select SND_SST_MACHINE
+	select SND_INTEL_SST
+	select SND_HWDEP
+	default n
+
+	help
+	  This adds support for ASoC machine driver for Intel(R) Anchor8 device
+          based on the BYT-CR platform and RT5651 codec.
+          Say Y if you have such a device
+          If unsure select "N".
+
+config SND_SOC_INTEL_CHT_T
+	tristate "SOC Machine Audio driver for Intel(R) CHT-T4 & CHT-T3 device"
+	depends on X86
+	select SND_SOC_RT5672
+	select SND_SOC_TLV320AIC31XX
+	select SND_SST_PLATFORM
+	select SND_SST_MACHINE
+	select SND_INTEL_SST
+	select SND_HWDEP
+	default n
+
+	help
+	  This adds support for ASoC machine driver for Intel(R) CHT-T device
+          based on the CHT-T3/T4 platform and RT5672/TLV320AIC31XX codec.
+          Say Y if you have such a device
+          If unsure select "N".
+
+config SND_INTEL_SST
+       tristate
+
+config SND_SST_PLATFORM
+	tristate
+
+config SND_SOC_COMMS_SSP
+	depends on SND_INTEL_MID_I2S
+	tristate "Use ASOC framework to drive AudioComms SSP BT and Modem"
+	help
+	  Sound SOC cards usually used for BT VOIP and MODEM MIXING use cases.
+	  This will add devices for these uses cases in the list of alsa cards.
+	  Say Y if you need these sound cards (BT chipset or Modem present).
+	  Requires to enable the INTEL_MID_I2S low level SSP I2S driver.
+
+config SST_DPCM
+	bool "Use DPCM based Machine Audio driver"
+	default n
+	help
+	  This adds an option to enable the DPCM based machine driver
+
+config SND_SST_MACHINE
+	tristate
+
+config SND_SST_SW_CODECS
+	depends on SND_INTEL_SST
+	bool "Disable HW codecs"
+	default n
+
+	help
+		This disables HW codecs support and falls back on
+		SW decoding. This is useful when HW codec firmwares
+		are still at alpha quality.
+

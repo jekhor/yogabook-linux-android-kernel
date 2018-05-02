@@ -1,0 +1,18 @@
+/*
+** DRV2604 register settings for initialization of AWA 4mm ERM
+**
+*/
+#ifndef ACTUATOR_NAME
+#define ACTUATOR_NAME "AWA1030"
+#endif
+    MODE_REG,                       AUTO_CALIBRATION,
+    RATED_VOLTAGE_REG,              0x52,
+    OVERDRIVE_CLAMP_VOLTAGE_REG,    0x99,
+    AUTO_CALI_RESULT_REG,           0xc,
+    AUTO_CALI_BACK_EMF_RESULT_REG,  0x6f,
+    FEEDBACK_CONTROL_REG,           0xb6,
+    Control1_REG,                   0x93,
+    Control2_REG,                   0xf5,
+    Control3_REG,                   0x80,
+    AUTOCAL_MEM_INTERFACE_REG,      0x20,
+    GO_REG,                         GO,
