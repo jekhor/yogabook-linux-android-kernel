@@ -1,1 +1,0 @@
-../../../../../../css/isp/kernels/scale/scale_1.0/ia_css_scale_param.h

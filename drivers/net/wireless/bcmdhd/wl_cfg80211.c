@@ -4753,7 +4753,7 @@ get_station_err:
 			/* Disconnect due to zero BSSID or error to get RSSI */
 			WL_ERR(("force cfg80211_disconnected: %d\n", err));
 			wl_clr_drv_status(cfg, CONNECTED, dev);
-			cfg80211_disconnected(dev, 0, NULL, 0, GFP_KERNEL);
+			cfg80211_disconnected(dev, 0, NULL, 0, false, GFP_KERNEL);
 			wl_link_down(cfg);
 		}
 	}
@@ -8474,7 +8474,7 @@ wl_notify_connect_status(struct bcm_cfg80211 *cfg, bcm_struct_cfgdev *cfgdev,
 						WL_ERR(("WLC_DISASSOC error %d\n", err));
 						err = 0;
 					}
-					cfg80211_disconnected(ndev, reason, NULL, 0, GFP_KERNEL);
+					cfg80211_disconnected(ndev, reason, NULL, 0, false, GFP_KERNEL);
 					wl_link_down(cfg);
 					wl_init_prof(cfg, ndev);
 				} else {
@@ -8979,7 +8979,7 @@ wl_notify_pfn_status(struct bcm_cfg80211 *cfg, bcm_struct_cfgdev *cfgdev,
 #ifndef WL_SCHED_SCAN
 	mutex_lock(&cfg->usr_sync);
 	/* TODO: Use cfg80211_sched_scan_results(wiphy); */
-	cfg80211_disconnected(ndev, 0, NULL, 0, GFP_KERNEL);
+	cfg80211_disconnected(ndev, 0, NULL, 0, false, GFP_KERNEL);
 	mutex_unlock(&cfg->usr_sync);
 #else
 	/* If cfg80211 scheduled scan is supported, report the pno results via sched
@@ -11533,7 +11533,7 @@ int wl_cfg80211_hang(struct net_device *dev, u16 reason)
 
 	WL_ERR(("In : chip crash eventing\n"));
 	wl_add_remove_pm_enable_work(cfg, FALSE, WL_HANDLER_DEL);
-	cfg80211_disconnected(dev, reason, NULL, 0, GFP_KERNEL);
+	cfg80211_disconnected(dev, reason, NULL, 0, false, GFP_KERNEL);
 	if (cfg != NULL) {
 		wl_link_down(cfg);
 	}

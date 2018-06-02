@@ -1,1 +1,0 @@
-../../../atomisp_driver/hrt/hive_isp_css_mm_hrt.c

@@ -1,1 +1,0 @@
-../../../../../../css/isp/kernels/macc/macc1_5/ia_css_macc1_5_param.h

@@ -1,1 +1,0 @@
-../../../../css/css_2401_system/hrt/isp_acquisition_defs.h

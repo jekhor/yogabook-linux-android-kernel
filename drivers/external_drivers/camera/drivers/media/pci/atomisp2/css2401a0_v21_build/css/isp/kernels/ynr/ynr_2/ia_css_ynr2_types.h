@@ -1,1 +1,0 @@
-../../../../../../css/isp/kernels/ynr/ynr_2/ia_css_ynr2_types.h
