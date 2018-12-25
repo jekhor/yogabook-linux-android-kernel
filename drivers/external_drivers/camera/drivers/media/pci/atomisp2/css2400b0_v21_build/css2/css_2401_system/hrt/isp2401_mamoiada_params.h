@@ -1,1 +1,0 @@
-../../../../css/css_2401_system/hrt/isp2401_mamoiada_params.h

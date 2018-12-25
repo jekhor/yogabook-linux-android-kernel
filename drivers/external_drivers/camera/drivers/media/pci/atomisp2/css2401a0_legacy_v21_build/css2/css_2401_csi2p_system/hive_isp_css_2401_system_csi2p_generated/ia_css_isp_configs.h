@@ -1,1 +1,0 @@
-../../../../css/css_2401_csi2p_system/hive_isp_css_2401_system_csi2p_generated/ia_css_isp_configs.h

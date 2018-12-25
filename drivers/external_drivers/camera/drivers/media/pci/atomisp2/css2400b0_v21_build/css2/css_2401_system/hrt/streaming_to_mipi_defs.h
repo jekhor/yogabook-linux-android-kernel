@@ -1,1 +1,0 @@
-../../../../css/css_2401_system/hrt/streaming_to_mipi_defs.h

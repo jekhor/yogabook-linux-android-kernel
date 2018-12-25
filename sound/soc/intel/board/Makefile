@@ -1,5 +1,5 @@
 #EXTRA CFLAGS
-ccflags-y += -Werror -Isound/soc/intel/board
+ccflags-y += -Werror
 
 #EXTRA_CFLAGS += -DDEBUG
 

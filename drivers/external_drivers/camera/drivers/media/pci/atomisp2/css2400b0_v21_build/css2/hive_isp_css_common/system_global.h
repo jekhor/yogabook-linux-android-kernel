@@ -1,1 +1,0 @@
-../../../css/hive_isp_css_common/system_global.h

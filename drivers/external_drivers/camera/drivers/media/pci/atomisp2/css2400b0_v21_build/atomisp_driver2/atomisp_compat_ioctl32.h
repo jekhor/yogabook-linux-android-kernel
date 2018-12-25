@@ -1,1 +1,0 @@
-../../atomisp_driver/atomisp_compat_ioctl32.h
