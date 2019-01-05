@@ -372,7 +372,7 @@ static void set_cht_cr_platform_config(void)
 	memcpy(sst_platform_pdata.ssp_config, sst_ssp_configs_cht_cr, sizeof(sst_ssp_configs_cht_cr));
 	memcpy(sst_platform_pdata.mux_shift, sst_ssp_mux_shift, sizeof(sst_ssp_mux_shift));
 
-	memcpy(sst_platform_pdata.domain_shift, sst_byt_ssp_domain_shift,
+	memcpy((int *)sst_platform_pdata.domain_shift, sst_byt_ssp_domain_shift,
 					sizeof(sst_byt_ssp_domain_shift));
 	pr_info("audio:%s\n", __func__);
 }

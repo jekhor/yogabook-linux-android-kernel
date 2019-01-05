@@ -3,7 +3,7 @@
 # subsystems should select the appropriate symbols.
 
 config REGMAP
-	default y if (REGMAP_I2C || REGMAP_SPI || REGMAP_SPMI || REGMAP_MMIO || REGMAP_IRQ)
+	default y if (REGMAP_I2C || REGMAP_SPI || REGMAP_SPMI || REGMAP_MMIO || REGMAP_IRQ || USB_TYPEC_PHY_FUSB300)
 	select LZO_COMPRESS
 	select LZO_DECOMPRESS
 	select IRQ_DOMAIN if REGMAP_IRQ
@@ -11,6 +11,7 @@ config REGMAP
 
 config REGMAP_I2C
 	tristate
+	default y if (USB_TYPEC_PHY_FUSB300 || INPUT_TI_2604L_HAPTICS)
 
 config REGMAP_SPI
 	tristate
